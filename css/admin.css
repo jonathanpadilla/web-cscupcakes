@@ -1,0 +1,15 @@
+.btn-editar{
+	text-align: right;
+}
+
+.btn-editar button{
+	padding: 3px;
+    border: 2px solid #9a85b1;
+    border-radius: 10px;
+    opacity:0.5;
+    transition: opacity 0.3s;
+}
+
+.btn-editar button:hover{
+	opacity:1;
+}

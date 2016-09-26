@@ -1,0 +1,163 @@
+{% extends "WebBundle:Default:body.html.twig" %}
+
+{% block title %}
+Nosotros | CS Cupcakes | Los &Aacute;ngeles
+{% endblock %}
+
+{% block content %}
+
+<div id="menuu" class="">
+  <div class="row">
+    <div class="medium-12 columns">
+      
+      <div class="wrapper">
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <h3>encuéntranos</h3>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="mapa">
+<div class="row">
+  <div class="medium-12 columns">
+    <div class="wrapper">
+
+      <div id="map"></div>
+
+    </div>
+  </div>
+</div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+
+<div id="horario">
+  
+  <div class="row">
+    <div class="medium-12 columns">
+      
+      <div class="ribbon">
+        <p>Horario de atencion</p>
+      </div>
+
+      <p class="text">Lunes a viernes: Mañana de 09:00 a 14:00 - Tarde de 15:00 a 19:00<br>
+      Sabado: Mañana de 09:00 a 13:00<br>
+      Domingos y Festivos Cerrado
+      </p>
+
+    </div>
+  </div>
+
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+            
+{% endblock %}
+
+{% block js %}
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyCc6uZiwgDirdfZgc4W41fR5MDs3H02wpk"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.21/gmaps.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+
+      var map = new GMaps({
+            el: "#map",
+            lat: -37.45976864993759,
+            lng: -72.33712792396545,
+            zoom: 15,
+            scrollwheel: false
+        });
+        map.addMarker({
+            lat: -37.45976864993759,
+            lng: -72.33712792396545,
+            title: "CsCupcakes"
+        });
+
+      $('#menuu ul li a').hover(
+        function(){
+          $(this).parent().parent().parent().parent().parent().find('img').attr('src', $(this).attr('href'));
+          $(this).css('font-weight','900');
+        },
+        function(){
+          $(this).css('font-weight','normal');
+        }
+      );
+
+      $(document).on('click', '#menuu ul li a', function(event){
+        event.preventDefault();
+        var $lis = $('#menuu ul li');
+        $.each($lis, function(){
+          $(this).removeClass("selected");
+        });
+        $(this).parent().addClass("selected");
+        console.log('asd');
+      });
+
+      var $textarea = $('form textarea');
+      var $submit = $('form input[type="submit"]');
+
+      $("form #onenter").on({
+         'mouseenter':function() { $(this).find($submit).stop(true,true).fadeIn('fast'); },
+         'mouseleave':function() { $(this).find($submit).stop(true,true).fadeOut('fast'); }
+      });
+
+      /*$('form textarea').hover(
+        function(){
+          $('form input[type="submit"]').fadeIn('fast');
+        },
+        function(){
+          $('form input[type="submit"]').fadeOut('fast');
+        }
+      );*/
+      $('.cupcakes-slides').slick({
+        infinite: true,
+        centerMode: false,
+        draggable: false,
+        responsive: [
+          {
+            breakpoint: 770,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1
+            }
+          },
+          {
+            breakpoint: 595,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1
+            }
+          },
+          {
+            breakpoint: 395,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      });
+    });
+    </script>
+{% endblock %}

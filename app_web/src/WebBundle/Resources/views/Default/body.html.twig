@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="off-canvas-wrapper">
+  <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+    <div class="off-canvas position-left" id="offCanvas" data-off-canvas data-position="left">
+      <ul id="menu-mobile" class="menu vertical">
+        
+        <li><a class="{{ pagina == 'inicio' ? 'selected' }}" href="{{ url('web_inicio') }}">Home</a></li><!--
+        --><li><a class="{{ pagina == 'nosotros' ? 'selected' }}" href="{{ url('web_nosotros') }}">Nosotros</a></li><!--
+        --><li><a class="{{ pagina == 'menu' ? 'selected' }}" href="{{ url('web_menu') }}">Men&uacute;</a></li><!--
+        --><li><a class="{{ pagina == 'disena' ? 'selected' }}" href="{{ url('web_arma_cupcake') }}">Dise&ntilde;a tu cupcake</a></li><!--
+        --><li><a class="{{ pagina == 'contacto' ? 'selected' }}" href="{{ url('web_contacto') }}">Contacto</a></li>
+
+      </ul>
+    </div>
+      <div class="off-canvas-content" data-off-canvas-content>
+
+        <button type="button" id="btn-menu" class="icon-top" data-toggle="offCanvas">
+          <i class="menu-icon "></i>
+          <span>MENU</span>
+        </button>
+
+        <!-- Start Site -->
+
+        <div id="header">
+          <div class="row">
+            <div class="medium-12 columns">
+              
+            <div class="wrapper">
+
+              <div id="menu">
+                <ul>
+                  <li class="item {{ pagina == 'inicio' ? 'selected' }}"><a href="{{ url('web_inicio') }}" class="{{ pagina == 'inicio' ? 'selected' }}">Home</a></li><!--
+                  --><li class="item {{ pagina == 'nosotros' ? 'selected' }}"><a href="{{ url('web_nosotros') }}" class="{{ pagina == 'nosotros' ? 'selected' }}">Nosotros</a></li><!--
+                  --><li class="item {{ pagina == 'menu' ? 'selected' }}"><a href="{{ url('web_menu') }}" class="{{ pagina == 'menu' ? 'selected' }}">Men&uacute;</a></li><!--
+                  --><li id="logo"><a href="index.html"><img src="{{ absolute_url(asset('image/logo.png')) }}"></a></li><!--
+                  --><li class="item {{ pagina == 'disena' ? 'selected' }}"><a href="{{ url('web_arma_cupcake') }}" class="{{ pagina == 'disena' ? 'selected' }}">Dise&ntilde;a tu cupcake</a></li><!--
+                  --><li class="item {{ pagina == 'contacto' ? 'selected' }}"><a href="{{ url('web_contacto') }}" class="{{ pagina == 'contacto' ? 'selected' }}">Contacto</a></li>
+                </ul>
+              </div>
+
+              <div id="logo2"><a href="index.html"><img src="{{ absolute_url(asset('image/logo.png')) }}"></a></div>
+
+              {% include 'WebBundle:Default:banner.html.twig' %}
+
+            </div>
+
+            </div>
+          </div>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+
+        {% include 'WebBundle:Default:footer.html.twig' %}
+
+      <!-- End offCanvas -->
+
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,380 +1,320 @@
-{% extends 'base.html.twig' %}
+{% extends "WebBundle:Default:body.html.twig" %}
 
-{% block body %}
-<div class="off-canvas-wrapper">
-  <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
-    <div class="off-canvas position-left" id="offCanvas" data-off-canvas data-position="left">
-      <ul id="menu-mobile" class="menu vertical">
-        
-        <li><a class="selected" href="index.html">Home</a></li><!--
-        --><li><a href="nosotros.html">Nosotros</a></li><!--
-        --><li><a href="menu.html">Men&uacute;</a></li><!--
-        --><li><a href="disena-tu-cupcake.html">Dise&ntilde;a tu cupcake</a></li><!--
-        --><li><a href="contacto.html">Contacto</a></li>
+{% block title %}
+CS Cupcakes | Los &Aacute;ngeles
+{% endblock %}
 
-      </ul>
+{% block content %}
+<div id="block1" class="block-blanco">
+  <div class="row">
+    <div class="medium-12 columns">
+      
+    <div class="wrapper">
+      
+      <div id="content1" class="row">
+        {% if session == 1 %}
+          <div class="medium-12 columns btn-editar">
+            <button><img src="{{ absolute_url(asset('image/edit.png')) }}" alt=""></button>
+          </div>
+          {% endif %}
+        <div class="medium-6 columns">
+          
+          <div class="wrapper">
+            <h3>Bienvenidos</h3>
+            <p>En Cs Cupcakes entendemos la repostería como el arte de preparar y decorar productos dulces. Unir exquisitos sabores con hermosas decoraciones acompañados de la más alta calidad de productos es nuestro compromiso. Queremos que cada mordisco genere una sonrisa y que cada momento especial se transforme en único.</p>
+            <div class="bottom">
+              <h4>haz tu pedido</h4>
+              <div class="telefono etiqueta">
+                9 9844 8040
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="medium-6 columns">
+          
+          <div class="wrapper">
+            <img src="{{ absolute_url( asset('image/inicio1.png')) }}">
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="ribbon">
+        <p>cupcakes destacados</p>
+      </div>
+
+      <div class="cupcakes-slides" data-slick='{"slidesToShow": 4, "slidesToScroll": 1}'>
+        <div><a href="">
+          <img src="{{ absolute_url( asset('image/cupcakes/clasico/limon.png')) }}">
+          <h3>Clasico</h3>
+          <hr>
+          <h4>Limon</h4>
+          <div class="precio">$925 - $570</div>
+        </a></div>
+
+        <div><a href="">
+          <img src="{{ absolute_url( asset('image/cupcakes/clasico/naranja.png')) }}">
+          <h3>Clasico</h3>
+          <hr>
+          <h4>Naranja</h4>
+          <div class="precio">$925 - $570</div>
+        </a></div>
+
+        <div><a href="">
+          <img src="{{ absolute_url( asset('image/cupcakes/personalizado/bautizo.png')) }}">
+          <h3>Personalizado</h3>
+          <hr>
+          <h4>Bautizos</h4>
+          <div class="precio">$925 - $570</div>
+        </a></div>
+
+        <div><a href="">
+          <img src="{{ absolute_url( asset('image/cupcakes/clasico/velvet.png')) }}">
+          <h3>Clasico</h3>
+          <hr>
+          <h4>Red Velvet</h4>
+          <div class="precio">$925 - $570</div>
+        </a></div>
+
+        <div><a href="">
+          <img src="{{ absolute_url( asset('image/cupcakes/Especiales/oreo.png')) }}">
+          <h3>Especiales</h3>
+          <hr>
+          <h4>Oreo</h4>
+          <div class="precio">$925 - $570</div>
+        </a></div>
+      </div>
+
     </div>
-      <div class="off-canvas-content" data-off-canvas-content>
-
-        <button type="button" id="btn-menu" class="icon-top" data-toggle="offCanvas">
-          <i class="menu-icon "></i>
-          <span>MENU</span>
-        </button>
-
-        <!-- Start Site -->
-
-        <div id="header">
-          <div class="row">
-            <div class="medium-12 columns">
-              
-            <div class="wrapper">
-
-              <div id="menu">
-                <ul>
-                  <li class="item selected"><a href="index.html" class="selected">Home</a></li><!--
-                  --><li class="item"><a href="nosotros.html">Nosotros</a></li><!--
-                  --><li class="item"><a href="menu.html">Men&uacute;</a></li><!--
-                  --><li id="logo"><a href="index.html"><img src="image/logo.png"></a></li><!--
-                  --><li class="item"><a href="disena-tu-cupcake.html">Dise&ntilde;a tu cupcake</a></li><!--
-                  --><li class="item"><a href="contacto.html">Contacto</a></li>
-                </ul>
-              </div>
-
-              <div id="logo2"><a href="index.html"><img src="image/logo.png"></a></div>
-              
-              <!-- <div class="cupcake">
-              <img src="image/cupcake.png">
-              </div> -->
-
-              <div id="banner">
-                  <div class="row">
-                    <div class="large-12 columns">
-                      <div class="row">
-                        <div id="owl-demo" class="owl-carousel">
-                          
-                          <div class="item">
-                            <img src="image/banner/baner1.png">
-                          </div>
-
-                          <div class="item">
-                            <img src="image/banner/baner2.png">
-                          </div>
-
-                          <div class="item">
-                            <img src="image/banner/baner3.png">
-                          </div>
-                          
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-
-            </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div id="block1" class="block-blanco">
-          <div class="row">
-            <div class="medium-12 columns">
-              
-            <div class="wrapper">
-              
-              <div id="content1" class="row">
-                <div class="medium-6 columns">
-                  
-                  <div class="wrapper">
-                    <h3>Bienvenidos</h3>
-                    <p>En Cs Cupcakes entendemos la repostería como el arte de preparar y decorar productos dulces. Unir exquisitos sabores con hermosas decoraciones acompañados de la más alta calidad de productos es nuestro compromiso. Queremos que cada mordisco genere una sonrisa y que cada momento especial se transforme en único.</p>
-                    <div class="bottom">
-                      <h4>haz tu pedido</h4>
-                      <div class="telefono etiqueta">
-                        9 9844 8040
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-                <div class="medium-6 columns">
-                  
-                  <div class="wrapper">
-                    <img src="image/inicio1.png">
-                  </div>
-                  
-                </div>
-              </div>
-
-              <div class="ribbon">
-                <p>cupcakes destacados</p>
-              </div>
-
-              <div class="cupcakes-slides" data-slick='{"slidesToShow": 4, "slidesToScroll": 1}'>
-                <div><a href="">
-                  <img src="image/cupcakes/clasico/limon.png">
-                  <h3>Clasico</h3>
-                  <hr>
-                  <h4>Limon</h4>
-                  <div class="precio">$925 - $570</div>
-                </a></div>
-
-                <div><a href="">
-                  <img src="image/cupcakes/clasico/naranja.png">
-                  <h3>Clasico</h3>
-                  <hr>
-                  <h4>Naranja</h4>
-                  <div class="precio">$925 - $570</div>
-                </a></div>
-
-                <div><a href="">
-                  <img src="image/cupcakes/personalizado/bautizo.png">
-                  <h3>Personalizado</h3>
-                  <hr>
-                  <h4>Bautizos</h4>
-                  <div class="precio">$925 - $570</div>
-                </a></div>
-
-                <div><a href="">
-                  <img src="image/cupcakes/clasico/velvet.png">
-                  <h3>Clasico</h3>
-                  <hr>
-                  <h4>Red Velvet</h4>
-                  <div class="precio">$925 - $570</div>
-                </a></div>
-
-                <div><a href="">
-                  <img src="image/cupcakes/Especiales/oreo.png">
-                  <h3>Especiales</h3>
-                  <hr>
-                  <h4>Oreo</h4>
-                  <div class="precio">$925 - $570</div>
-                </a></div>
-              </div>
-
-            </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div id="block2" class="block-negro">
-          <div class="row">
-            <div class="medium-12 columns">
-              
-              <div class="wrapper">
-              
-                <div class="row">
-                  <div class="medium-4 columns">
-                    <div class="cupcake cup1">
-                      <img src="image/cup1.png">
-                      <h4>Love</h4>
-                      <h3>Chocolate</h3>
-                      <div class="precio">$925 - $570</div>
-                    </div>
-                  </div>
-                  <div class="medium-4 columns">
-                    <img src="image/logo2.png">
-                    <p>prueba nuestra línea premium.<br>
-                      regala amor, regala momentos<br>
-                      <span>regala cs cupcakes</span></p>
-                  </div>
-                  <div class="medium-4 columns">
-                    <div class="cupcake cup2">
-                      <img src="image/cup2.png">
-                      <h4>Passion</h4>
-                      <h3>Chocolate</h3>
-                      <div class="precio">$925 - $570</div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div id="block3" class="block-blanco">
-          <div class="row">
-            <div class="medium-12 columns">
-              
-              <div class="wrapper">
-
-                <h2>nuevos cupcakes</h2>
-
-                <div class="separador"><img src="image/separador1.png"></div>
-
-                <p>Déjate seducir por sabores y aromas inigualables, sorpréndete al disfrutar de sabores nuestros tradicionales en CupCakes y vuélvete un adicto al comer un especial.</p>
-
-                <div class="cupcakes-slides" data-slick='{"slidesToShow": 4, "slidesToScroll": 1}'>
-                <div><a href="">
-                  <img src="image/cupcakes/clasico/limon.png">
-                  <h3>Clasico</h3>
-                  <hr>
-                  <h4>Limon</h4>
-                  <div class="precio">$925 - $570</div>
-                </a></div>
-
-                <div><a href="">
-                  <img src="image/cupcakes/clasico/naranja.png">
-                  <h3>Clasico</h3>
-                  <hr>
-                  <h4>Naranja</h4>
-                  <div class="precio">$925 - $570</div>
-                </a></div>
-
-                <div><a href="">
-                  <img src="image/cupcakes/personalizado/bautizo.png">
-                  <h3>Personalizado</h3>
-                  <hr>
-                  <h4>Bautizos</h4>
-                  <div class="precio">$925 - $570</div>
-                </a></div>
-
-                <div><a href="">
-                  <img src="image/cupcakes/clasico/velvet.png">
-                  <h3>Clasico</h3>
-                  <hr>
-                  <h4>Red Velvet</h4>
-                  <div class="precio">$925 - $570</div>
-                </a></div>
-
-                <div><a href="">
-                  <img src="image/cupcakes/Especiales/oreo.png">
-                  <h3>Especiales</h3>
-                  <hr>
-                  <h4>Oreo</h4>
-                  <div class="precio">$925 - $570</div>
-                </a></div>
-              </div>
-
-                <div class="light">
-
-                  <h2>Servicios Especiales</h2>
-
-                  <div class="separador"><img src="image/separador1.png"></div>
-
-                  <p>Si deseas que tu evento a actividad tenga un toque especial a lo ya vivido, puedes contar con nosotros, ya que te ofrecemos CupCakes Personalizados para celebraciones como matrimonios, bautizos, actividades para empresas e instituciones con despacho a domicilio.</p>
-
-                  <div id="serv" class="row">
-                    <div class="medium-offset-1 medium-3 columns">
-                      <a href="#">
-                        <img src="image/s1.png">
-                        <h3>cupcakes para cocktail</h3>
-                      </a>
-                    </div>
-                    <div class="medium-3 columns">
-                      <a href="#">
-                        <img src="image/s2.png">
-                        <h3>entrega a domicilio</h3>
-                      </a>
-                    </div>
-                    <div class="medium-3 columns end">
-                      <a href="#">
-                        <img src="image/s3.png">
-                        <h3>cupcakes personalizados</h3>
-                      </a>
-                    </div>
-                  </div>
-
-                <br>
-                <br>
-                <br>
-
-                <div class="ribbon">
-                  <p>Encuéntranos en…</p>
-                </div>                   
-
-                <br>
-
-                <div class="row">
-                  <div class="medium-6 large-3 columns">
-                    <a href=""><img src="image/youtube.jpg"></a>
-                  </div>
-                  <div class="medium-6 large-3 columns">
-                    <a href=""><img src="image/facebook.jpg"></a>
-                  </div>
-                  <div class="medium-6 large-3 columns">
-                    <a href=""><img src="image/instagram.jpg"></a>
-                  </div>
-                  <div class="medium-6 large-3 columns">
-                    <a href=""><img src="image/google.jpg"></a>
-                  </div>
-                </div>
-
-                <h5>Instragram</h5>
-
-                <div class="row">
-                  <div class="medium-6 large-3 columns">
-                    <a href=""><img src="image/pic.png"></a>
-                  </div>
-                  <div class="medium-6 large-3 columns">
-                    <a href=""><img src="image/pic.png"></a>
-                  </div>
-                  <div class="medium-6 large-3 columns">
-                    <a href=""><img src="image/pic.png"></a>
-                  </div>
-                  <div class="medium-6 large-3 columns">
-                    <a href=""><img src="image/pic.png"></a>
-                  </div>
-                </div>
-
-
-                </div>
-
-                <br>
-                <br>
-
-
-
-
-
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div id="footer">
-          <div class="row">
-            <div class="medium-12 columns">
-              
-              <div class="wrapper">
-                
-                <div class="row">
-                  <div class="medium-3 columns">
-                    <a href=""><img src="image/logo3.png"></a>
-                  </div>
-                  <div class="medium-6 columns">
-                    <div class="uno"><h3>Regala Momentos</h3></div>
-                    <div class="dos"><h3>Regala Amor</h3></div>
-                    <div class="tres"><h3>Díselo con un Cupcake</h3></div>
-                    <div class="cuatro"><h3>Regala Cs Cupcakes</h3></div>
-                  </div>
-                  <div class="medium-3 columns">
-                    <h3>cont&aacute;ctanos</h3>
-                    <form id="contacto" name="form1" action="src/correo.php" data-abide novalidate>
-                      <input type="text" name="nombre" id="nombre" placeholder="Nombre">
-                      <input type="email" name="correo" id="mail" placeholder="E-mail">
-                      <div id="onenter" class="relative">
-                        <textarea id="mensaje"  name="msj" placeholder="Mensaje"></textarea>
-                        <input id="btn-enviar" type="submit" value="Enviar">
-                      </div>
-                    </form>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-      <!-- End offCanvas -->
 
     </div>
   </div>
 </div>
+
+<div id="block2" class="block-negro">
+  <div class="row">
+    <div class="medium-12 columns">
+      
+      <div class="wrapper">
+      
+        <div class="row">
+          <div class="medium-4 columns">
+            <div class="cupcake cup1">
+              <img src="{{ absolute_url( asset('image/cup1.png')) }}">
+              <h4>Love</h4>
+              <h3>Chocolate</h3>
+              <div class="precio">$925 - $570</div>
+            </div>
+          </div>
+          <div class="medium-4 columns">
+            <img src="{{ absolute_url( asset('image/logo2.png')) }}">
+            <p>prueba nuestra línea premium.<br>
+              regala amor, regala momentos<br>
+              <span>regala cs cupcakes</span></p>
+          </div>
+          <div class="medium-4 columns">
+            <div class="cupcake cup2">
+              <img src="{{ absolute_url( asset('image/cup2.png')) }}">
+              <h4>Passion</h4>
+              <h3>Chocolate</h3>
+              <div class="precio">$925 - $570</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="block3" class="block-blanco">
+  <div class="row">
+    <div class="medium-12 columns">
+      
+      <div class="wrapper">
+
+        <h2>nuevos cupcakes</h2>
+
+        <div class="separador"><img src="{{ absolute_url( asset('image/separador1.png')) }}"></div>
+
+        <p>Déjate seducir por sabores y aromas inigualables, sorpréndete al disfrutar de sabores nuestros tradicionales en CupCakes y vuélvete un adicto al comer un especial.</p>
+
+        <div class="cupcakes-slides" data-slick='{"slidesToShow": 4, "slidesToScroll": 1}'>
+        <div><a href="">
+          <img src="{{ absolute_url( asset('image/cupcakes/clasico/limon.png')) }}">
+          <h3>Clasico</h3>
+          <hr>
+          <h4>Limon</h4>
+          <div class="precio">$925 - $570</div>
+        </a></div>
+
+        <div><a href="">
+          <img src="{{ absolute_url( asset('image/cupcakes/clasico/naranja.png')) }}">
+          <h3>Clasico</h3>
+          <hr>
+          <h4>Naranja</h4>
+          <div class="precio">$925 - $570</div>
+        </a></div>
+
+        <div><a href="">
+          <img src="{{ absolute_url( asset('image/cupcakes/personalizado/bautizo.png')) }}">
+          <h3>Personalizado</h3>
+          <hr>
+          <h4>Bautizos</h4>
+          <div class="precio">$925 - $570</div>
+        </a></div>
+
+        <div><a href="">
+          <img src="{{ absolute_url( asset('image/cupcakes/clasico/velvet.png')) }}">
+          <h3>Clasico</h3>
+          <hr>
+          <h4>Red Velvet</h4>
+          <div class="precio">$925 - $570</div>
+        </a></div>
+
+        <div><a href="">
+          <img src="{{ absolute_url( asset('image/cupcakes/Especiales/oreo.png')) }}">
+          <h3>Especiales</h3>
+          <hr>
+          <h4>Oreo</h4>
+          <div class="precio">$925 - $570</div>
+        </a></div>
+      </div>
+
+        <div class="light">
+
+          <h2>Servicios Especiales</h2>
+
+          <div class="separador"><img src="{{ absolute_url( asset('image/separador1.png')) }}"></div>
+
+          <p>Si deseas que tu evento a actividad tenga un toque especial a lo ya vivido, puedes contar con nosotros, ya que te ofrecemos CupCakes Personalizados para celebraciones como matrimonios, bautizos, actividades para empresas e instituciones con despacho a domicilio.</p>
+
+          <div id="serv" class="row">
+            <div class="medium-offset-1 medium-3 columns">
+              <a href="#">
+                <img src="{{ absolute_url( asset('image/s1.png')) }}">
+                <h3>cupcakes para cocktail</h3>
+              </a>
+            </div>
+            <div class="medium-3 columns">
+              <a href="#">
+                <img src="{{ absolute_url( asset('image/s2.png')) }}">
+                <h3>entrega a domicilio</h3>
+              </a>
+            </div>
+            <div class="medium-3 columns end">
+              <a href="#">
+                <img src="{{ absolute_url( asset('image/s3.png')) }}">
+                <h3>cupcakes personalizados</h3>
+              </a>
+            </div>
+          </div>
+
+        <br>
+        <br>
+        <br>
+
+        <div class="ribbon">
+          <p>Encuéntranos en…</p>
+        </div>                   
+
+        <br>
+
+        <div class="row">
+          <div class="medium-6 large-3 columns">
+            <a href=""><img src="{{ absolute_url( asset('image/youtube.jpg')) }}"></a>
+          </div>
+          <div class="medium-6 large-3 columns">
+            <a href=""><img src="{{ absolute_url( asset('image/facebook.jpg')) }}"></a>
+          </div>
+          <div class="medium-6 large-3 columns">
+            <a href=""><img src="{{ absolute_url( asset('image/instagram.jpg')) }}"></a>
+          </div>
+          <div class="medium-6 large-3 columns">
+            <a href=""><img src="{{ absolute_url( asset('image/google.jpg')) }}"></a>
+          </div>
+        </div>
+
+        <h5>Instragram</h5>
+
+        <div class="row">
+          <div class="medium-6 large-3 columns">
+            <a href=""><img src="{{ absolute_url( asset('image/pic.png')) }}"></a>
+          </div>
+          <div class="medium-6 large-3 columns">
+            <a href=""><img src="{{ absolute_url( asset('image/pic.png')) }}"></a>
+          </div>
+          <div class="medium-6 large-3 columns">
+            <a href=""><img src="{{ absolute_url( asset('image/pic.png')) }}"></a>
+          </div>
+          <div class="medium-6 large-3 columns">
+            <a href=""><img src="{{ absolute_url( asset('image/pic.png')) }}"></a>
+          </div>
+        </div>
+
+
+        </div>
+
+        <br>
+        <br>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+    $(function(){
+
+      var $textarea = $('form textarea');
+      var $submit = $('form input[type="submit"]');
+
+      $("form #onenter").on({
+         'mouseenter':function() { $(this).find($submit).stop(true,true).fadeIn('fast'); },
+         'mouseleave':function() { $(this).find($submit).stop(true,true).fadeOut('fast'); }
+      });
+
+      /*$('form textarea').hover(
+        function(){
+          $('form input[type="submit"]').fadeIn('fast');
+        },
+        function(){
+          $('form input[type="submit"]').fadeOut('fast');
+        }
+      );*/
+      $('.cupcakes-slides').slick({
+        infinite: true,
+        centerMode: false,
+        draggable: false,
+        responsive: [
+          {
+            breakpoint: 770,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1
+            }
+          },
+          {
+            breakpoint: 595,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1
+            }
+          },
+          {
+            breakpoint: 395,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      });
+    });
+    </script>
 {% endblock %}

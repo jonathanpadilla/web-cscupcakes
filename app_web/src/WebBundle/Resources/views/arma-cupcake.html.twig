@@ -1,0 +1,406 @@
+{% extends "WebBundle:Default:body.html.twig" %}
+
+{% block title %}
+Diseña tu cupcake | CS Cupcakes | Los &Aacute;ngeles
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+{% endblock %}
+
+{% block content %}
+
+<br>
+<br>
+<br>
+<br>
+
+<div id="arma">
+  <div class="row">
+    <div class="medium-offset-1 medium-10 end columns text-center">
+        
+      <ul class="row small-up-1 medium-up-3 large-up-6 top">
+        <li class="columns"><a href="" class="actived">1 - Tipo</a><span class="opcion"></span></li>
+        <li class="columns"><a href="" class="disabled">2 - Sabor</a><span class="opcion"></span></li>
+        <li class="columns"><a href="" class="disabled">3 - Covertura</a><span class="opcion"></span></li>
+        <li class="columns"><a href="" class="disabled">4 - Color cobertura</a><span class="opcion"></span></li>
+        <li class="columns"><a href="" class="disabled">5 - Decoracion</a><span class="opcion"></span></li>
+        <li class="columns"><a href="" class="disabled">6 - Tus datos</a><span class="opcion"></span></li>
+      </ul> <br><br><br><br>
+
+    </div>
+    <div class="medium-12 columns">
+      
+      <div class="cupcakes-slides" data-slick='{"slidesToShow": 4, "slidesToScroll": 1}'>
+        
+        <div class="step1 slide-step">
+
+          <div class="row">
+            <div class="large-offset-4 large-2 columns">
+              <a href="minicupcake" class="step1a step">
+                <h3>minicupcake</h3><br>
+                <img src="{{ absolute_url( asset('image/step12.png')) }}">
+              </a><br>
+              <!-- <a class="aprev" href="">Paso Anterior</a> -->
+            </div>
+            <div class="large-2 end columns">
+              <a href="cupcake" class="step1b step">
+                <h3>cupcake</h3><br>
+                <img src="{{ absolute_url( asset('image/step11.png')) }}">
+              </a><br>
+              <!-- <a class="anext" href="">Siguiente Paso</a> -->
+            </div>
+          </div>
+          <div class="row">
+            <div class="medium-12 columns text-center">
+
+              <h5>¿Cuantos Cupcakes?</h5>
+                
+              <div class="range-slider">
+                <input class="range-slider__range" type="range" value="6" min="6" max="500">
+                <span class="range-slider__value">0</span>
+              </div>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="medium-12 columns">
+              <!-- <a class="aprev" href="">Paso Anterior</a> -->
+              <a class="anext" href="">Siguiente Paso</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="step2 slide-step">
+
+          <div class="row">
+            <div class="medium-6 large-2 columns">
+              <a href="vainilla" class="step2a step">
+                <h3>vainilla</h3><br>
+                <img src="{{ absolute_url( asset('image/step21.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="chocolate" class="step2b step">
+                <h3>chocolate</h3><br>
+                <img src="{{ absolute_url( asset('image/step22.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="limon" class="step2c step">
+                <h3>limón</h3><br>
+                <img src="{{ absolute_url( asset('image/step23.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="naranja" class="step2d step">
+                <h3>naranja</h3><br>
+                <img src="{{ absolute_url( asset('image/step24.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="mentachoc" class="step2e step">
+                <h3>mentachoc</h3><br>
+                <img src="{{ absolute_url( asset('image/step25.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="belgachoc" class="step2f step">
+                <h3>belgachoc</h3><br>
+                <img src="{{ absolute_url( asset('image/step26.png')) }}">
+              </a><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="medium-12 columns">
+              <a class="aprev" href="">Paso Anterior</a>
+              <a class="anext" href="">Siguiente Paso</a>
+            </div>
+          </div>
+
+        </div>
+        
+        
+        <div class="step3 slide-step">
+
+          <div class="row">
+            <div class="medium-6 large-2 columns">
+              <a href="chocolate" class="step3a step">
+                <h3>chocolate</h3><br>
+                <img src="{{ absolute_url( asset('image/step31.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="manjar" class="step3b step">
+                <h3>manjar</h3><br>
+                <img src="{{ absolute_url( asset('image/step32.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="nutella" class="step3c step">
+                <h3>nutella</h3><br>
+                <img src="{{ absolute_url( asset('image/step33.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="frambuesa" class="step3d step">
+                <h3>frambuesa</h3><br>
+                <img src="{{ absolute_url( asset('image/step34.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="arandanos" class="step3e step">
+                <h3>arándanos</h3><br>
+                <img src="{{ absolute_url( asset('image/step35.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="cremapastelera" class="step3f step">
+                <h3>cremapastelera</h3><br>
+                <img src="{{ absolute_url( asset('image/step36.png')) }}">
+              </a><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="medium-12 columns">
+              <a class="aprev" href="">Paso Anterior</a>
+              <a class="anext" href="">Siguiente Paso</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="step4 slide-step">
+
+          <div class="row">
+            <div class="medium-6 large-2 columns">
+              <a href="rojo" class="step4a step">
+                <h3>rojo</h3><br>
+                <img src="{{ absolute_url( asset('image/step51.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="verde" class="step4b step">
+                <h3>verde</h3><br>
+                <img src="{{ absolute_url( asset('image/step52.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="amarillo" class="step4c step">
+                <h3>amarillo</h3><br>
+                <img src="{{ absolute_url( asset('image/step53.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="celeste" class="step4d step">
+                <h3>celeste</h3><br>
+                <img src="{{ absolute_url( asset('image/step54.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="azul" class="step4e step">
+                <h3>azul</h3><br>
+                <img src="{{ absolute_url( asset('image/step55.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="marron" class="step4f step">
+                <h3>marrón</h3><br>
+                <img src="{{ absolute_url( asset('image/step56.png')) }}">
+              </a><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="medium-6 large-2 columns">
+              <a href="morado" class="step4g step">
+                <h3>morado</h3><br>
+                <img src="{{ absolute_url( asset('image/step57.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="naranja" class="step4h step">
+                <h3>naranja</h3><br>
+                <img src="{{ absolute_url( asset('image/step58.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns end">
+              <a href="rosado" class="step4i step">
+                <h3>rosado</h3><br>
+                <img src="{{ absolute_url( asset('image/step59.png')) }}">
+              </a><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="medium-12 columns">
+              <a class="aprev" href="">Paso Anterior</a>
+              <a class="anext" href="">Siguiente Paso</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="step5 slide-step">
+
+          <div class="row">
+            <div class="medium-6 large-2 columns">
+              <a href="letras" class="step5a step">
+                <h3>letras</h3><br>
+                <img src="{{ absolute_url( asset('image/step41.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="flores" class="step5b step">
+                <h3>flores</h3><br>
+                <img src="{{ absolute_url( asset('image/step42.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="pearldrops" class="step5c step">
+                <h3>pearldrops</h3><br>
+                <img src="{{ absolute_url( asset('image/step43.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="chocorain" class="step5d step">
+                <h3>chocorain</h3><br>
+                <img src="{{ absolute_url( asset('image/step44.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="chocoflakes" class="step5e step">
+                <h3>chocoflakes</h3><br>
+                <img src="{{ absolute_url( asset('image/step45.png')) }}">
+              </a><br>
+            </div>
+            <div class="medium-6 large-2 columns">
+              <a href="ornamental" class="step5f step">
+                <h3>ornamental</h3><br>
+                <img src="{{ absolute_url( asset('image/step46.png')) }}">
+              </a><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="medium-12 columns">
+              <a class="aprev" href="">Paso Anterior</a>
+              <a class="anext" href="">Paso Final</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="step6 slide-step">
+
+          <div class="row">
+            <div class="medium-12 columns">
+              
+              <form id="datos">
+                <div class="row">
+                  <div class="medium-offset-2 medium-4 columns">
+                    <label>Nombre
+                      <input type="text" id="nombre" placeholder="" required>
+                    </label>
+                  </div>
+                  <div class="medium-4 end columns">
+                    <label>Apellidos
+                      <input type="text" id="apellidos" placeholder="" required>
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="medium-offset-2 medium-4 columns">
+                    <label>Telefono
+                      <input type="text" id="telefono" placeholder="" required>
+                    </label>
+                  </div>
+                  <div class="medium-4 end columns">
+                    <label>Correo
+                      <input type="text" id="correo" placeholder="" required>
+                    </label>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="medium-12 columns">
+              <a class="aprev" href="">Paso Anterior</a>
+              <a class="terminar" href="">Terminar</a>
+            </div>
+          </div>
+
+        </div>
+        
+      </div> 
+
+    </div>
+  </div>
+</div>
+            
+{% endblock %}
+
+{% block js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script src="{{ absolute_url( asset('js/arma.js')) }}"></script>
+<script type="text/javascript">
+    $(function(){
+
+      $('#menuu ul li a').hover(
+        function(){
+          $(this).parent().parent().parent().parent().parent().find('img').attr('src', $(this).attr('href'));
+          $(this).css('font-weight','900');
+        },
+        function(){
+          $(this).css('font-weight','normal');
+        }
+      );
+
+      $(document).on('click', '#menuu ul li a', function(event){
+        event.preventDefault();
+        var $lis = $('#menuu ul li');
+        $.each($lis, function(){
+          $(this).removeClass("selected");
+        });
+        $(this).parent().addClass("selected");
+        console.log('asd');
+      });
+
+      var $textarea = $('form textarea');
+      var $submit = $('form input[type="submit"]');
+
+      $("form #onenter").on({
+         'mouseenter':function() { $(this).find($submit).stop(true,true).fadeIn('fast'); },
+         'mouseleave':function() { $(this).find($submit).stop(true,true).fadeOut('fast'); }
+      });
+
+      /*$('form textarea').hover(
+        function(){
+          $('form input[type="submit"]').fadeIn('fast');
+        },
+        function(){
+          $('form input[type="submit"]').fadeOut('fast');
+        }
+      );*/
+
+      /*$('.anext').on('click', function(event){
+        event.preventDefault();
+        $('.cupcakes-slides').slick('slickNext');
+      });
+
+      $('.aprev').on('click', function(event){
+        event.preventDefault();
+        $('.cupcakes-slides').slick('slickPrev');
+      });*/
+
+      $('.cupcakes-slides').slick({
+        infinite: true,
+        centerMode: false,
+        draggable: false,
+        slidesToShow: 1,
+        arrows: false
+      });
+    });
+    </script>
+{% endblock %}

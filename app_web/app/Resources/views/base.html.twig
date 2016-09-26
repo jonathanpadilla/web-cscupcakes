@@ -9,11 +9,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css">
     <link rel="stylesheet" href="{{ absolute_url(asset('css/owl.carousel2.min.css')) }}">
-
+    
     <link rel="stylesheet" href="{{ absolute_url(asset('css/app.css')) }}">
+    {% if session == 1 %}
+    <link rel="stylesheet" href="{{ absolute_url(asset('css/admin.css')) }}">
+    {% endif %}
+
+    {% block css %}
+    {% endblock %}
 
   </head>
-  <body>
+  <body {{ id_body is defined ? id_body }}>
     
     {% block body %}
     {% endblock %}
@@ -25,57 +31,14 @@
     <script src="{{ absolute_url(asset('js/owl.carousel2.min.js')) }}"></script>
     <script src="{{ absolute_url(asset('js/app.js')) }}"></script>
 
+    {% if session == 1 %}
+    <link rel="stylesheet" href="{{ absolute_url(asset('js/admin.js')) }}">
+    {% endif %}
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
 
-    <script type="text/javascript">
-    $(function(){
-
-      var $textarea = $('form textarea');
-      var $submit = $('form input[type="submit"]');
-
-      $("form #onenter").on({
-         'mouseenter':function() { $(this).find($submit).stop(true,true).fadeIn('fast'); },
-         'mouseleave':function() { $(this).find($submit).stop(true,true).fadeOut('fast'); }
-      });
-
-      /*$('form textarea').hover(
-        function(){
-          $('form input[type="submit"]').fadeIn('fast');
-        },
-        function(){
-          $('form input[type="submit"]').fadeOut('fast');
-        }
-      );*/
-      $('.cupcakes-slides').slick({
-        infinite: true,
-        centerMode: false,
-        draggable: false,
-        responsive: [
-          {
-            breakpoint: 770,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 1
-            }
-          },
-          {
-            breakpoint: 595,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 1
-            }
-          },
-          {
-            breakpoint: 395,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1
-            }
-          }
-        ]
-      });
-    });
-    </script>
+    {% block js %}
+    {% endblock %}
 
   </body>
 </html>

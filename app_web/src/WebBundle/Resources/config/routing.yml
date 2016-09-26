@@ -1,3 +1,19 @@
 web_inicio:
     path:     /
     defaults: { _controller: WebBundle:Inicio:inicio }
+
+web_nosotros:
+    path:     /nosotros/
+    defaults: { _controller: WebBundle:Nosotros:nosotros }
+
+web_menu:
+    path:     /menu/
+    defaults: { _controller: WebBundle:Menu:menu }
+
+web_arma_cupcake:
+    path:     /disena-tu-cupcake/
+    defaults: { _controller: WebBundle:ArmaCupcake:armaCupcake }
+
+web_contacto:
+    path:     /contacto/
+    defaults: { _controller: WebBundle:Contacto:contacto }

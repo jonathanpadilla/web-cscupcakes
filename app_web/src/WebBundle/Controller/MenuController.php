@@ -4,14 +4,14 @@ namespace WebBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class InicioController extends Controller
+class MenuController extends Controller
 {
-    public function inicioAction()
+    public function menuAction()
     {
     	$session = 1;
-
-        return $this->render('WebBundle::inicio.html.twig', array(
-        	'pagina' => 'inicio',
+    	
+        return $this->render('WebBundle::menu.html.twig', array(
+        	'pagina' => 'menu',
         	'session' => $session
         	));
     }
