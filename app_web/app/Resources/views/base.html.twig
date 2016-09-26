@@ -8,9 +8,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css">
-    <link rel="stylesheet" href="css/owl.carousel2.min.css">
+    <link rel="stylesheet" href="{{ absolute_url(asset('css/owl.carousel2.min.css')) }}">
 
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="{{ absolute_url(asset('css/app.css')) }}">
 
   </head>
   <body>
@@ -18,12 +18,12 @@
     {% block body %}
     {% endblock %}
 
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/what-input/what-input.js"></script>
-    <script src="bower_components/foundation-sites/dist/foundation.js"></script>
+    <script src="{{ absolute_url(asset('bower_components/jquery/dist/jquery.js')) }}"></script>
+    <script src="{{ absolute_url(asset('bower_components/what-input/what-input.js')) }}"></script>
+    <script src="{{ absolute_url(asset('bower_components/foundation-sites/dist/foundation.js')) }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.js"></script>
-    <script src="js/owl.carousel2.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="{{ absolute_url(asset('js/owl.carousel2.min.js')) }}"></script>
+    <script src="{{ absolute_url(asset('js/app.js')) }}"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
 

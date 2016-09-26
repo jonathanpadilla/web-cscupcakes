@@ -1,0 +1,41 @@
+
+@font-face {
+font-family: 'AvenirLight';
+font-style: normal;
+font-weight: normal;
+src: local('../font/Avenir Next LT Pro Ultra Light Condensed'), url('../font/AvenirNextLTPro-UltLtCn.woff') format('woff');
+}
+
+@font-face {
+font-family: 'AvenirRegular';
+font-style: normal;
+font-weight: normal;
+src: local('../font/Avenir Next LT Pro Regular'), url('../font/AvenirNextLTPro-Regular.woff') format('woff');
+}
+
+@font-face {
+font-family: 'AvenirBold';
+font-style: normal;
+font-weight: normal;
+src: local('../font/Avenir Next LT Pro Bold'), url('../font/AvenirNextLTPro-Bold.woff') format('woff');
+}
+
+@font-face {
+font-family: 'AvenirMedium';
+font-style: normal;
+font-weight: normal;
+src: local('../font/Avenir Next LT Pro Medium Condensed'), url('../font/AvenirNextLTPro-MediumCn.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'nexa';
+    src: url('../font/NexaRustSlab-BlackShadow01-Free-webfont.eot');
+    src: url('../font/NexaRustSlab-BlackShadow01-Free-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/NexaRustSlab-BlackShadow01-Free-webfont.woff2') format('woff2'),
+         url('../font/NexaRustSlab-BlackShadow01-Free-webfont.woff') format('woff'),
+         url('../font/NexaRustSlab-BlackShadow01-Free-webfont.ttf') format('truetype'),
+         url('../font/NexaRustSlab-BlackShadow01-Free-webfont.svg#nexa_rust_slabblack_shadow_01') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
