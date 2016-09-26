@@ -17,3 +17,10 @@ web_arma_cupcake:
 web_contacto:
     path:     /contacto/
     defaults: { _controller: WebBundle:Contacto:contacto }
+
+# FUNCIONE AJAX
+ajax_guardar_texto:
+    path:     /admin/guardar-texto/
+    defaults: { _controller: WebBundle:Inicio:guardarTexto }
+    options:
+        expose: true

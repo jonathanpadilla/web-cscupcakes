@@ -11,21 +11,22 @@ CS Cupcakes | Los &Aacute;ngeles
       
     <div class="wrapper">
       
-      <div id="content1" class="row">
-        {% if session == 1 %}
-          <div class="medium-12 columns btn-editar">
-            <button><img src="{{ absolute_url(asset('image/edit.png')) }}" alt=""></button>
-          </div>
-          {% endif %}
+      <div id="content1" class="row edit_bienvenida">
         <div class="medium-6 columns">
           
           <div class="wrapper">
-            <h3>Bienvenidos</h3>
-            <p>En Cs Cupcakes entendemos la repostería como el arte de preparar y decorar productos dulces. Unir exquisitos sabores con hermosas decoraciones acompañados de la más alta calidad de productos es nuestro compromiso. Queremos que cada mordisco genere una sonrisa y que cada momento especial se transforme en único.</p>
+            <div class="editar_texto_input" data-id="1" data-campo="1" data-item="h3">
+              <h3>Bienvenidos</h3>
+            </div>
+            <div class="editar_texto_area" data-id="1" data-campo="2" data-item="p">
+              <p>En Cs Cupcakes entendemos la repostería como el arte de preparar y decorar productos dulces. Unir exquisitos sabores con hermosas decoraciones acompañados de la más alta calidad de productos es nuestro compromiso. Queremos que cada mordisco genere una sonrisa y que cada momento especial se transforme en único.</p>
+            </div>
             <div class="bottom">
-              <h4>haz tu pedido</h4>
-              <div class="telefono etiqueta">
-                9 9844 8040
+              <div class="editar_texto_input" data-id="1" data-campo="3" data-item="h4">
+                <h4>haz tu pedido</h4>
+              </div>
+              <div class="telefono etiqueta editar_texto_input" data-id="1" data-campo="4" data-item="h4">
+                <p>9 9844 8040</p>
               </div>
             </div>
           </div>
@@ -43,6 +44,12 @@ CS Cupcakes | Los &Aacute;ngeles
       <div class="ribbon">
         <p>cupcakes destacados</p>
       </div>
+
+      {% if session == 1 %}
+        <div class="btn-editar">
+          <button type="button" id="btn_inicio_editar_bienvenida"><img src="{{ absolute_url(asset('image/edit.png')) }}" alt=""></button>
+        </div>
+      {% endif %}
 
       <div class="cupcakes-slides" data-slick='{"slidesToShow": 4, "slidesToScroll": 1}'>
         <div><a href="">

@@ -13,3 +13,8 @@
 .btn-editar button:hover{
 	opacity:1;
 }
+
+.editar_texto_input, .editar_texto_area{
+	cursor: pointer;
+	display: inline-block;
+}
