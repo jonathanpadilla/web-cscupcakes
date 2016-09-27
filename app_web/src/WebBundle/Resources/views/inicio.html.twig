@@ -22,19 +22,25 @@ CS Cupcakes | Los &Aacute;ngeles
               <p>En Cs Cupcakes entendemos la repostería como el arte de preparar y decorar productos dulces. Unir exquisitos sabores con hermosas decoraciones acompañados de la más alta calidad de productos es nuestro compromiso. Queremos que cada mordisco genere una sonrisa y que cada momento especial se transforme en único.</p>
             </div>
             <div class="bottom">
-              <div class="editar_texto_input" data-id="1" data-campo="3" data-item="h4">
+              <div class="editar_texto_input inline-block" data-id="1" data-campo="3" data-item="h4">
                 <h4>haz tu pedido</h4>
               </div>
-              <div class="telefono etiqueta editar_texto_input" data-id="1" data-campo="4" data-item="h4">
-                <p>9 9844 8040</p>
+              <div class="telefono etiqueta editar_texto_input" data-id="1" data-campo="4" data-item="span">
+                <span>9 9844 8040</span>
               </div>
             </div>
           </div>
 
         </div>
         <div class="medium-6 columns">
-          
-          <div class="wrapper">
+          {% if session == 1 %}
+            <div class="btn-editar">
+              <form id="form_imagen_bienvenida" action="#" method="post" enctype="multipart/form-data">
+                <input type="file" class="file_foto" accept="image/x-png, image/jpeg" name="foto" data-img="img_bienvenida" data-form="form_imagen_bienvenida" data-id="1">
+              </form>
+            </div>
+          {% endif %}
+          <div class="wrapper img_bienvenida">
             <img src="{{ absolute_url( asset('image/inicio1.png')) }}">
           </div>
           
@@ -145,8 +151,10 @@ CS Cupcakes | Los &Aacute;ngeles
         <h2>nuevos cupcakes</h2>
 
         <div class="separador"><img src="{{ absolute_url( asset('image/separador1.png')) }}"></div>
-
-        <p>Déjate seducir por sabores y aromas inigualables, sorpréndete al disfrutar de sabores nuestros tradicionales en CupCakes y vuélvete un adicto al comer un especial.</p>
+      
+        <div class="editar_texto_input" data-id="2" data-campo="2" data-item="p">
+          <p>Déjate seducir por sabores y aromas inigualables, sorpréndete al disfrutar de sabores nuestros tradicionales en CupCakes y vuélvete un adicto al comer un especial.</p>
+        </div>
 
         <div class="cupcakes-slides" data-slick='{"slidesToShow": 4, "slidesToScroll": 1}'>
         <div><a href="">
@@ -195,8 +203,10 @@ CS Cupcakes | Los &Aacute;ngeles
           <h2>Servicios Especiales</h2>
 
           <div class="separador"><img src="{{ absolute_url( asset('image/separador1.png')) }}"></div>
-
-          <p>Si deseas que tu evento a actividad tenga un toque especial a lo ya vivido, puedes contar con nosotros, ya que te ofrecemos CupCakes Personalizados para celebraciones como matrimonios, bautizos, actividades para empresas e instituciones con despacho a domicilio.</p>
+          
+          <div class="editar_texto_input" data-id="3" data-campo="2" data-item="p">
+            <p>Si deseas que tu evento a actividad tenga un toque especial a lo ya vivido, puedes contar con nosotros, ya que te ofrecemos CupCakes Personalizados para celebraciones como matrimonios, bautizos, actividades para empresas e instituciones con despacho a domicilio.</p>
+          </div>
 
           <div id="serv" class="row">
             <div class="medium-offset-1 medium-3 columns">

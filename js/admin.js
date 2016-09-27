@@ -1,4 +1,5 @@
 var btn_inicio_editar_bienvenida 	= $("#btn_inicio_editar_bienvenida");
+var file_foto 						= $(".file_foto");
 
 var editar_texto_input 				= $(".editar_texto_input");
 var editar_texto_area 				= $(".editar_texto_area");
@@ -52,8 +53,19 @@ $(function(){
 
 	});
 
+	file_foto.on('change', function(){
+		var btn 					= $(this);
+		var content_image 			= btn.data('img');
+		var form 					= btn.data('form');
+		var id 						= btn.data('id');
+
+		// $("."+content_image).html('<img src="#">');
+		guardarImagen( $("#"+form), 1);
+	});
+
 });
 
+// funciones globales
 function focusInTexto(content, texto, area)
 {
 	// input o textarea
@@ -95,6 +107,30 @@ function guardarTexto(texto, id, campo)
 		{
 			console.log(json);
 		}
+	
+	});
+	
+}
+
+function guardarImagen(form, id)
+{
+	var datos = new FormData(form[0]);
+	datos.append('id', id);
+
+	$.ajax({
+		url: Routing.generate('ajax_guardar_imagen'),
+		data: datos,
+		dataType: 'json',
+		method: 'post',
+		contentType:false,
+	  	processData:false,
+	  	cache:false
+	}).success(function(json){
+		if(json.result)
+		{
+	
+		}
+		console.log(json);
 	
 	});
 	

@@ -21,6 +21,12 @@ web_contacto:
 # FUNCIONE AJAX
 ajax_guardar_texto:
     path:     /admin/guardar-texto/
-    defaults: { _controller: WebBundle:Inicio:guardarTexto }
+    defaults: { _controller: WebBundle:Admin:guardarTexto }
+    options:
+        expose: true
+
+ajax_guardar_imagen:
+    path:     /admin/guardar-imagen/
+    defaults: { _controller: WebBundle:Admin:guardarImagen }
     options:
         expose: true

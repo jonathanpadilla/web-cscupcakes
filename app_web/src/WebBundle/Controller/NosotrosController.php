@@ -10,10 +10,10 @@ class NosotrosController extends Controller
     {
     	$session = 1;
     	
-        return $this->render('WebBundle::nosotros.html.twig', array(
+        return $this->render('WebBundle::nosotros.html.twig', [
         	'id_body' => 'id=nosotros',
         	'session' => $session,
         	'pagina' => 'nosotros'
-        	));
+        	]);
     }
 }
