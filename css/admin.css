@@ -26,8 +26,6 @@
 }
 
 .file_foto{
-	/*color: #584788;
-    font-weight: bold;*/
     color: transparent;
 }
 
@@ -38,10 +36,52 @@
 .file_foto::before {
   content: url("../image/picture.png");
   cursor: pointer;
+  float:right;
   opacity:0.5;
   transition: opacity 0.3s;
-  float:right;
 }
 .file_foto:hover::before {
   opacity:1;
+}
+
+.edit_red_social{
+  margin-top: 10px;
+  padding: 0 23px;
+}
+
+.file_foto2{
+    color: transparent;
+    margin-top:10px;
+}
+
+.file_foto2::-webkit-file-upload-button{
+  visibility: hidden;
+}
+
+.file_foto2::before {
+  content: "Subir Imagen";
+  cursor: pointer;
+  opacity:0.5;
+  transition: opacity 0.3s;
+  border: 2px solid #5e4297;
+  color: #5e4297;
+  font-weight: bold;
+  padding-left:20px;
+  padding-right:20px;
+}
+.file_foto2:hover::before {
+  opacity:1;
+}
+
+.contenido_imagen_vacio{
+  width: 100%;
+  height: 250px;
+  background-color: #e6e5e5;
+  border: 3px dashed #c3bdbd;
+}
+
+.btn_guardar_destacados{
+  border: 2px solid #66438d;
+  padding: 6px 20px;
+  color: #66438d;
 }

@@ -56,6 +56,20 @@ class Seccion
      */
     private $foto;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="activo", type="integer", nullable=true)
+     */
+    private $activo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comentario", type="text", length=65535, nullable=true)
+     */
+    private $comentario;
+
 
 
     /**
@@ -181,5 +195,51 @@ class Seccion
     public function getFoto()
     {
         return $this->foto;
+    }
+
+    /**
+     * Set activo
+     *
+     * @param integer $activo
+     * @return Seccion
+     */
+    public function setActivo($activo)
+    {
+        $this->activo = $activo;
+
+        return $this;
+    }
+
+    /**
+     * Get activo
+     *
+     * @return integer 
+     */
+    public function getActivo()
+    {
+        return $this->activo;
+    }
+
+    /**
+     * Set comentario
+     *
+     * @param string $comentario
+     * @return Seccion
+     */
+    public function setComentario($comentario)
+    {
+        $this->comentario = $comentario;
+
+        return $this;
+    }
+
+    /**
+     * Get comentario
+     *
+     * @return string 
+     */
+    public function getComentario()
+    {
+        return $this->comentario;
     }
 }

@@ -56,5 +56,19 @@ class Seccion
      */
     private $foto;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="activo", type="integer", nullable=true)
+     */
+    private $activo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comentario", type="text", length=65535, nullable=true)
+     */
+    private $comentario;
+
 
 }

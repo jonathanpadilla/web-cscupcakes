@@ -1,0 +1,60 @@
+<?php
+
+namespace WebBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Cupcakes
+ *
+ * @ORM\Table(name="cupcakes")
+ * @ORM\Entity
+ */
+class Cupcakes
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="tipo", type="integer", nullable=true)
+     */
+    private $tipo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="imagen", type="string", length=100, nullable=true)
+     */
+    private $imagen;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="texto1", type="string", length=50, nullable=true)
+     */
+    private $texto1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="texto2", type="string", length=50, nullable=true)
+     */
+    private $texto2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="precio", type="string", length=50, nullable=true)
+     */
+    private $precio;
+
+
+}
