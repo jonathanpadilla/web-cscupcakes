@@ -42,3 +42,15 @@ ajax_guardar_cupcakes:
     defaults: { _controller: WebBundle:Admin:guardarCupcakes }
     options:
         expose: true
+
+ajax_guardar_imagen_banner:
+    path:     /admin/guardar-imagen-banner/
+    defaults: { _controller: WebBundle:Admin:guardarImagenBanner }
+    options:
+        expose: true
+
+ajax_eliminar_imagen_banner:
+    path:     /admin/eliminar-imagen-banner/
+    defaults: { _controller: WebBundle:Admin:eliminarImagenBanner }
+    options:
+        expose: true

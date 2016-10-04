@@ -5,6 +5,7 @@ namespace WebBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use WebBundle\Entity\Cupcakes;
+use WebBundle\Entity\Banner;
 
 class AdminController extends Controller
 {
@@ -119,6 +120,7 @@ class AdminController extends Controller
         {
             $em             = $this->getDoctrine()->getManager();
             $id             = ($request->get('txt_id', false))? $request->get('txt_id'): 0;
+            $txt_tipo       = ($request->get('txt_tipo', false))? $request->get('txt_tipo'): 0;
             $txt_texto_1    = ($request->get('txt_texto_1', false))? $request->get('txt_texto_1'): null;
             $txt_texto_2    = ($request->get('txt_texto_2', false))? $request->get('txt_texto_2'): null;
             $txt_precio     = ($request->get('txt_precio', false))? $request->get('txt_precio'): null;
@@ -128,23 +130,60 @@ class AdminController extends Controller
             {
                 $cupcake = new Cupcakes();
             }
-                $cupcake->setTipo(1);
+                $cupcake->setTipo($txt_tipo);
                 $cupcake->setTexto1($txt_texto_1);
                 $cupcake->setTexto2($txt_texto_2);
                 $cupcake->setPrecio($txt_precio);
 
                 if($img = $this->subirImagen($foto))
                 {
-                    if( is_numeric($id) && $seccion = $em->getRepository('WebBundle:Seccion')->findOneBy(array('id' => $id )) )
-                    {
-                        $cupcake->setImagen($img);
-                    }
+                    $cupcake->setImagen($img);
                 }
 
                 $em->persist($cupcake);
                 $em->flush();
 
                 $result = true;
+        }
+
+        echo json_encode(array('result' => $result));
+        exit;
+    }
+
+    public function guardarImagenBannerAction(Request $request)
+    {
+        $result = false;
+        $foto   = ($request->files->get('foto', false))? $request->files->get('foto', false): null;
+        $em     = $this->getDoctrine()->getManager();
+
+        if($img = $this->subirImagen($foto))
+        {
+            $banner = new Banner();
+            $banner->setImagen($img);
+            $banner->setActivo(1);
+            $em->persist($banner);
+            $em->flush();
+
+            $result = true;
+        }
+
+        echo json_encode(array('result' => $result));
+        exit;
+    }
+
+    public function eliminarImagenBannerAction(Request $request)
+    {
+        $result = false;
+        $id     = ($request->get('id', false))? $request->get('id'): 0;
+        $em     = $this->getDoctrine()->getManager();
+
+        if($banner = $em->getRepository('WebBundle:Banner')->findOneBy(array('id' => $id )))
+        {
+            $banner->setActivo(0);
+            $em->persist($banner);
+            $em->flush();
+
+            $result = true;
         }
 
         echo json_encode(array('result' => $result));

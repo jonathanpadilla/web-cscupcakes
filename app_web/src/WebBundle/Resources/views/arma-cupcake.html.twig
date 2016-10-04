@@ -56,6 +56,9 @@ Diseña tu cupcake | CS Cupcakes | Los &Aacute;ngeles
 
               <h5>¿Cuantos Cupcakes?</h5>
                 
+              <div class="texto_cantidad" style="text-align: center;">
+                <input id="range_texto" type="text" style="width: 100px;margin: auto;text-align: center;" value="6">
+              </div>
               <div class="range-slider">
                 <input class="range-slider__range" type="range" value="6" min="6" max="500">
                 <span class="range-slider__value">0</span>
@@ -346,6 +349,16 @@ Diseña tu cupcake | CS Cupcakes | Los &Aacute;ngeles
 <script src="{{ absolute_url( asset('js/arma.js')) }}"></script>
 <script type="text/javascript">
     $(function(){
+
+
+      $(".range-slider__range").change(function(){
+        $("#range_texto").val($(this).val());
+      });
+
+      $("#range_texto").keyup(function(){
+        $(".range-slider__range").val($(this).val());
+        $(".range-slider__value").text($(this).val());
+      });
 
       $('#menuu ul li a').hover(
         function(){

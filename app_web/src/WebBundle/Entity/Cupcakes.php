@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Cupcakes
  *
- * @ORM\Table(name="cupcakes")
+ * @ORM\Table(name="cupcakes", indexes={@ORM\Index(name="categoria", columns={"categoria"})})
  * @ORM\Entity
  */
 class Cupcakes
@@ -55,6 +55,16 @@ class Cupcakes
      * @ORM\Column(name="precio", type="string", length=50, nullable=true)
      */
     private $precio;
+
+    /**
+     * @var \Categoria
+     *
+     * @ORM\ManyToOne(targetEntity="Categoria")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="categoria", referencedColumnName="id")
+     * })
+     */
+    private $categoria;
 
 
 
@@ -181,5 +191,28 @@ class Cupcakes
     public function getPrecio()
     {
         return $this->precio;
+    }
+
+    /**
+     * Set categoria
+     *
+     * @param \WebBundle\Entity\Categoria $categoria
+     * @return Cupcakes
+     */
+    public function setCategoria(\WebBundle\Entity\Categoria $categoria = null)
+    {
+        $this->categoria = $categoria;
+
+        return $this;
+    }
+
+    /**
+     * Get categoria
+     *
+     * @return \WebBundle\Entity\Categoria 
+     */
+    public function getCategoria()
+    {
+        return $this->categoria;
     }
 }

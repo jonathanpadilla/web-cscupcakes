@@ -58,62 +58,22 @@ CS Cupcakes | Los &Aacute;ngeles
       {% endif %}
 
       <div class="cupcakes-slides" data-slick='{"slidesToShow": 4, "slidesToScroll": 1}'>
-        <div>
-          <a href="">
-            <img src="{{ absolute_url( asset('image/cupcakes/clasico/limon.png')) }}">
-            <h3>Clasico</h3>
-            <hr>
-            <h4>Limon</h4>
-            <div class="precio">$925 - $570</div>
-          </a>
-          {% if session == 1 %}
-            <a href="#" class="btn_editar_destacado" data-id="1" data-img="#" data-texto1="texto1" data-texto2="texto2" data-precio="1111">Editar</a>
-          {% endif %}
-        </div>
 
-        <div>
-          <a href="">
-            <img src="{{ absolute_url( asset('image/cupcakes/clasico/naranja.png')) }}">
-            <h3>Clasico</h3>
-            <hr>
-            <h4>Naranja</h4>
-            <div class="precio">$925 - $570</div>
-          </a>
-          <a href="#" class="btn_editar_destacado" data-id="2" data-img="#" data-texto1="texto1" data-texto2="texto2" data-precio="1111">Editar</a>
-        </div>
-
-        <div>
-          <a href="">
-            <img src="{{ absolute_url( asset('image/cupcakes/personalizado/bautizo.png')) }}">
-            <h3>Personalizado</h3>
-            <hr>
-            <h4>Bautizos</h4>
-            <div class="precio">$925 - $570</div>
-          </a>
-          <a href="#" class="btn_editar_destacado" data-id="3" data-img="#" data-texto1="texto1" data-texto2="texto2" data-precio="1111">Editar</a>
-        </div>
-
-        <div>
-          <a href="">
-            <img src="{{ absolute_url( asset('image/cupcakes/clasico/velvet.png')) }}">
-            <h3>Clasico</h3>
-            <hr>
-            <h4>Red Velvet</h4>
-            <div class="precio">$925 - $570</div>
-          </a>
-          <a href="#" class="btn_editar_destacado" data-id="4" data-img="#" data-texto1="texto1" data-texto2="texto2" data-precio="1111">Editar</a>
-        </div>
-
-        <div>
-          <a href="">
-            <img src="{{ absolute_url( asset('image/cupcakes/Especiales/oreo.png')) }}">
-            <h3>Especiales</h3>
-            <hr>
-            <h4>Oreo</h4>
-            <div class="precio">$925 - $570</div>
-          </a>
-          <a href="#" class="btn_editar_destacado" data-id="5" data-img="#" data-texto1="texto1" data-texto2="texto2" data-precio="1111">Editar</a>
-        </div>
+        {% for destacado in destacados %}
+          <div>
+            <a>
+              <img src="{{ absolute_url( asset(destacado.imagen)) }}">
+              <h3>{{ destacado.texto1 }}</h3>
+              <hr>
+              <h4>{{ destacado.texto2 }}</h4>
+              <div class="precio">{{ destacado.precio }}</div>
+            </a>
+            {% if session == 1 %}
+              <a href="#" class="btn_editar_destacado" data-id="{{ destacado.id }}" data-img="{{ absolute_url( asset(destacado.imagen)) }}" data-texto1="{{ destacado.texto1 }}" data-texto2="{{ destacado.texto2 }}" data-precio="{{ destacado.precio }}">Editar</a>
+              <!-- <a href="#">Eliminar</a> -->
+            {% endif %}
+          </div>
+        {% endfor %}
       </div>
 
     </div>
@@ -172,17 +132,30 @@ CS Cupcakes | Los &Aacute;ngeles
         <div class="editar_texto_input" data-id="2" data-campo="2" data-item="p">
           <p>Déjate seducir por sabores y aromas inigualables, sorpréndete al disfrutar de sabores nuestros tradicionales en CupCakes y vuélvete un adicto al comer un especial.</p>
         </div>
+        
+        {% if session == 1 %}
+          <div class="btn-editar">
+            <button type="button" id="btn_inicio_editar_nuevos"><img src="{{ absolute_url(asset('image/edit.png')) }}" alt=""></button>
+          </div>
+        {% endif %}
 
         <div class="cupcakes-slides" data-slick='{"slidesToShow": 4, "slidesToScroll": 1}'>
-        <div><a href="">
-          <img src="{{ absolute_url( asset('image/cupcakes/clasico/limon.png')) }}">
-          <h3>Clasico</h3>
-          <hr>
-          <h4>Limon</h4>
-          <div class="precio">$925 - $570</div>
-        </a></div>
+        {% for nuevo in nuevos %}
+          <div>
+            <a href="#">
+              <img src="{{ absolute_url( asset(nuevo.imagen)) }}">
+              <h3>{{ nuevo.texto1 }}</h3>
+              <hr>
+              <h4>{{ nuevo.texto2 }}</h4>
+              <div class="precio">{{ nuevo.precio }}</div>
+            </a>
+              {% if session == 1 %}
+                <a href="#" class="btn_editar_nuevo" data-id="{{ nuevo.id }}" data-img="{{ absolute_url( asset(nuevo.imagen)) }}" data-texto1="{{ nuevo.texto1 }}" data-texto2="{{ nuevo.texto2 }}" data-precio="{{ nuevo.precio }}">Editar</a>
+              {% endif %}
+          </div>
+        {% endfor %}
 
-        <div><a href="">
+        <!-- <div><a href="">
           <img src="{{ absolute_url( asset('image/cupcakes/clasico/naranja.png')) }}">
           <h3>Clasico</h3>
           <hr>
@@ -212,7 +185,7 @@ CS Cupcakes | Los &Aacute;ngeles
           <hr>
           <h4>Oreo</h4>
           <div class="precio">$925 - $570</div>
-        </a></div>
+        </a></div> -->
       </div>
 
         <div class="light">
@@ -259,59 +232,46 @@ CS Cupcakes | Los &Aacute;ngeles
         <div class="row">
           <div class="medium-6 large-3 columns">
             <a href=""><img src="{{ absolute_url( asset('image/youtube.jpg')) }}"></a>
-            {% if session == 1 %}
+            <!-- {# if session == 1 #}
             <div class="edit_red_social">
               <input type="text" cLass="txt_red_social" data-id="8" value="" placeholder="http://">
             </div>
-            {% endif %}
+            {# endif #} -->
           </div>
           <div class="medium-6 large-3 columns">
             <a href=""><img src="{{ absolute_url( asset('image/facebook.jpg')) }}"></a>
-            {% if session == 1 %}
+            <!-- {# if session == 1 #}
             <div class="edit_red_social">
               <input type="text" cLass="txt_red_social" data-id="6" value="" placeholder="http://">
             </div>
-            {% endif %}
+            {# endif #} -->
           </div>
           <div class="medium-6 large-3 columns">
             <a href=""><img src="{{ absolute_url( asset('image/instagram.jpg')) }}"></a>
-            {% if session == 1 %}
+            <!-- {# if session == 1 #}
             <div class="edit_red_social">
               <input type="text" class="txt_red_social" data-id="7" value="" placeholder="http://">
             </div>
-            {% endif %}
+            {# endif #} -->
           </div>
           <div class="medium-6 large-3 columns">
             <a href=""><img src="{{ absolute_url( asset('image/google.jpg')) }}"></a>
-            {% if session == 1 %}
+            <!-- {# if session == 1 #}
             <div class="edit_red_social">
               <input type="text" class="txt_red_social" data-id="9" value="" placeholder="http://">
             </div>
-            {% endif %}
+            {# endif #} -->
           </div>
         </div>
 
         <h5>Instagram</h5>
 
         <div class="row">
-          <!-- <div class="medium-6 large-3 columns">
-            <a href=""><img src="{{ absolute_url( asset('image/pic.png')) }}"></a>
-          </div>
-          <div class="medium-6 large-3 columns">
-            <a href=""><img src="{{ absolute_url( asset('image/pic.png')) }}"></a>
-          </div>
-          <div class="medium-6 large-3 columns">
-            <a href=""><img src="{{ absolute_url( asset('image/pic.png')) }}"></a>
-          </div>
-          <div class="medium-6 large-3 columns">
-            <a href=""><img src="{{ absolute_url( asset('image/pic.png')) }}"></a>
-          </div> -->
 
           <div style="position: relative; height: 16px; width: 100%; overflow: hidden; padding-top:50%;"><iframe src="//widgets-code.websta.me/w/c3ddb17bef3b?ck=MjAxNi0wOS0yOFQxNDo0MDowNC4wMDBa" class="websta-widgets" allowtransparency="true" frameborder="0" scrolling="no" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe> <!-- WEBSTA WIDGETS - widgets.websta.me --></div>
 
 
         </div>
-
 
         </div>
 
@@ -324,12 +284,14 @@ CS Cupcakes | Los &Aacute;ngeles
   </div>
 </div>
 
+{% if session == 1 %}
 <div class="small reveal" id="exampleModal1" data-reveal data-animation-in="someAnimationIn">
   <h2>CUPCAKES DESTACADOS</h2>
   <div class="row">
     <div class="medium-12 columns">
       <form id="form_destacados" action="{{ url('ajax_guardar_cupcakes') }}" method="post" enctype="multipart/form-data">
         <input type="hidden" id="txt_id" name="txt_id">
+        <input type="hidden" id="txt_tipo" name="txt_tipo" value="1">
         
         <h3>Agregar</h3>
 
@@ -347,10 +309,10 @@ CS Cupcakes | Los &Aacute;ngeles
 
           </div>
           <div class="medium-6 columns">
-            <div class="contenido_imagen_editar">
+            <div class="contenido_imagen_editar" style="text-align: center;">
               
             </div>
-            <div class="btn-editar">
+            <div class="btn-editar" style="text-align: center;">
               <input type="file" class="file_foto_destacado file_foto2" accept="image/x-png, image/jpeg" name="foto">
             </div>
           </div>
@@ -365,6 +327,50 @@ CS Cupcakes | Los &Aacute;ngeles
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
+
+<div class="small reveal" id="exampleModal2" data-reveal data-animation-in="someAnimationIn">
+  <h2>CUPCAKES NUEVOS</h2>
+  <div class="row">
+    <div class="medium-12 columns">
+      <form id="form_nuevos" action="{{ url('ajax_guardar_cupcakes') }}" method="post" enctype="multipart/form-data">
+        <input type="hidden" id="txt_id_nuevo" name="txt_id">
+        <input type="hidden" id="txt_tipo_nuevo" name="txt_tipo" value="2">
+
+        <h3>Agregar</h3>
+
+        <div class="row">
+          <div class="medium-6 columns">
+
+            <label for="">texto 1</label>
+            <input type="text" id="txt_texto_1_nuevo" name="txt_texto_1">
+
+            <label for="">texto 2</label>
+            <input type="text" id="txt_texto_2_nuevo" name="txt_texto_2">
+
+            <label for="">Precio</label>
+            <input type="text" id="txt_precio_nuevo" name="txt_precio">
+
+          </div>
+          <div class="medium-6 columns">
+            <div class="contenido_imagen_editar_nuevo" style="text-align: center;">
+
+            </div>
+            <div class="btn-editar" style="text-align: center;">
+              <input type="file" class="file_foto_nuevo file_foto2" accept="image/x-png, image/jpeg" name="foto">
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn_guardar_nuevo">Guardar</button>
+
+      </form>
+    </div>
+  </div>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endif %}
 {% endblock %}
 
 {% block js %}
