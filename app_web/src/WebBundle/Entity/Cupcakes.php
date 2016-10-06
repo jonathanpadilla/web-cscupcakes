@@ -57,6 +57,13 @@ class Cupcakes
     private $precio;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="activo", type="integer", nullable=true)
+     */
+    private $activo;
+
+    /**
      * @var \Categoria
      *
      * @ORM\ManyToOne(targetEntity="Categoria")
@@ -191,6 +198,29 @@ class Cupcakes
     public function getPrecio()
     {
         return $this->precio;
+    }
+
+    /**
+     * Set activo
+     *
+     * @param integer $activo
+     * @return Cupcakes
+     */
+    public function setActivo($activo)
+    {
+        $this->activo = $activo;
+
+        return $this;
+    }
+
+    /**
+     * Get activo
+     *
+     * @return integer 
+     */
+    public function getActivo()
+    {
+        return $this->activo;
     }
 
     /**

@@ -36,7 +36,7 @@ class AdminController extends Controller
     		$result = true;
     	}
 
-    	echo json_encode(['result' => $result]);
+    	echo json_encode(array('result' => $result));
     	exit;
     }
 
@@ -62,7 +62,7 @@ class AdminController extends Controller
             
         }
 
-        echo json_encode(['result' => $result]);
+        echo json_encode(array('result' => $result));
         exit;
     }
 
@@ -92,13 +92,13 @@ class AdminController extends Controller
 
         if($foto)
         {
-            $obj = [
+            $obj = array(
                 'filesize'      => $foto->getClientSize(),
                 'filetype'      => $foto->getClientMimeType(),
                 'fileextension' => $foto->getClientOriginalExtension(),
                 'filenewname'   => uniqid().".".$foto->getClientOriginalExtension(),
                 'filenewpath'   => __DIR__.'/../../../../image/uploads'
-            ];
+            );
 
             if($obj['filesize'] <= 5242880 && ($obj['filetype'] == 'image/png' || $obj['filetype'] == 'image/jpeg') )
             {
@@ -134,6 +134,7 @@ class AdminController extends Controller
                 $cupcake->setTexto1($txt_texto_1);
                 $cupcake->setTexto2($txt_texto_2);
                 $cupcake->setPrecio($txt_precio);
+                $cupcake->setActivo(1);
 
                 if($img = $this->subirImagen($foto))
                 {
@@ -184,6 +185,63 @@ class AdminController extends Controller
             $em->flush();
 
             $result = true;
+        }
+
+        echo json_encode(array('result' => $result));
+        exit;
+    }
+
+    public function eliminarCupcakeAction(Request $request)
+    {
+        $result = false;
+        $id     = ($request->get('id', false))? $request->get('id'): 0;
+        $em     = $this->getDoctrine()->getManager();
+
+        if($cupcake = $em->getRepository('WebBundle:Cupcakes')->findOneBy(array('id' => $id )))
+        {
+            $cupcake->setActivo(0);
+            $em->persist($cupcake);
+            $em->flush();
+
+            $result = true;
+        }
+
+        echo json_encode(array('result' => $result));
+        exit;
+    }
+
+    public function agregarCupcakeAction(Request $request)
+    {
+        $result         = false;
+        $id             = ($request->get('id', false))? $request->get('id'): 0;
+        $txt_cat        = ($request->get('txt_cat', false))? $request->get('txt_cat'): 0;
+        $txt_texto_2    = ($request->get('txt_texto_2', false))? $request->get('txt_texto_2'): 0;
+        $foto           = ($request->files->get('foto', false))? $request->files->get('foto', false): null;
+        $em             = $this->getDoctrine()->getManager();
+
+        if( $txt_texto_2 && $foto )
+        {
+            $fkCat = $em->getRepository('WebBundle:Categoria')->findOneBy(array('id' => $txt_cat));
+
+            if(!$cupcake = $em->getRepository('WebBundle:Cupcakes')->findOneBy(array('id' => $id )))
+            {
+                $cupcake = new Cupcakes();
+                $cupcake->setCategoria($fkCat);
+            }
+            $cupcake->setTipo(0);
+            $cupcake->setTexto2($txt_texto_2);
+            $cupcake->setActivo(1);
+
+            if($img = $this->subirImagen($foto))
+            {
+                $cupcake->setImagen($img);
+            }
+
+            $em->persist($cupcake);
+            $em->flush();
+
+            $result = true;
+            
         }
 
         echo json_encode(array('result' => $result));

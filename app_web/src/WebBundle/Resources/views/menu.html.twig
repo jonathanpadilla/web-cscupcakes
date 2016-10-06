@@ -23,19 +23,17 @@ Nosotros | CS Cupcakes | Los &Aacute;ngeles
                 <h3>Clasicos</h3>
                 <div class="row medium-up-2">
                   <div class="column">
+                    {% if session %}
+                    <a href="#" class="btn_agregar_cupcake" data-categoria="1">Agregar</a>
+                    {% endif %}
                     <ul>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/clasico/velvet.png')) }}">Red Velvet</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/clasico/prev2.png')) }}">Chocolate</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/clasico/prev1.png')) }}">Vainilla</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/clasico/naranja.png')) }}">Naranja</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/clasico/limon.png')) }}">Limón</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/clasico/manjar.png')) }}">Manjar</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/clasico/prev1.png')) }}">CS Cupcakes</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/clasico/menta.png')) }}">Chocolate Menta</a></li>
+                      {% for cupcake in lista_cupcake.1 %}
+                      <li><a href="{{ absolute_url( asset(cupcake.img)) }}">{{ cupcake.nombre }}</a>{% if session %} - <button type="button" class="btn_eliminar_cupcake" data-id="{{ cupcake.id }}" style="color:red;">Eliminar</button>{% endif %}</li>
+                      {% endfor %}
                     </ul>
                   </div>
                   <div class="column foto">
-                    <img src="{{ absolute_url( asset('image/prev1.png')) }}">
+                    <img src="{{ absolute_url( asset('image/cupcakes/clasico/velvet.png')) }}">
                   </div>
                 </div>
 
@@ -47,19 +45,17 @@ Nosotros | CS Cupcakes | Los &Aacute;ngeles
                 <h3>Especiales</h3>
                 <div class="row medium-up-2">
                   <div class="column">
+                    {% if session %}
+                    <a href="#" class="btn_agregar_cupcake" data-categoria="2">Agregar</a>
+                    {% endif %}
                     <ul>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/Especiales/ganache.png')) }}">Ganache</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/Especiales/zanahoria.png')) }}">Zanahoria</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/Especiales/prev1.png')) }}">Chocolate Blanco Frambuesa</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/Especiales/prev2.png')) }}">Caramelo Chocolate</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/Especiales/nutella.png')) }}">Nutella</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/Especiales/leches.png')) }}">Tres Leches</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/Especiales/oreo.png')) }}">Oreo</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/Especiales/daiquiri.png')) }}">Daiquiri Frambuesa</a></li>
+                      {% for cupcake in lista_cupcake.2 %}
+                      <li><a href="{{ absolute_url( asset(cupcake.img)) }}">{{ cupcake.nombre }}</a>{% if session %} - <button type="button" class="btn_eliminar_cupcake" data-id="{{ cupcake.id }}" style="color:red;">Eliminar</button>{% endif %}</li>
+                      {% endfor %}
                     </ul>
                   </div>
                   <div class="column foto">
-                    <img src="{{ absolute_url( asset('image/prev1.png')) }}">
+                    <img src="{{ absolute_url( asset('image/cupcakes/Especiales/ganache.png')) }}">
                   </div>
                 </div>
 
@@ -71,20 +67,17 @@ Nosotros | CS Cupcakes | Los &Aacute;ngeles
                 <h3>Personalizados</h3>
                 <div class="row medium-up-2">
                   <div class="column">
+                    {% if session %}
+                    <a href="#" class="btn_agregar_cupcake" data-categoria="3">Agregar</a>
+                    {% endif %}
                     <ul>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/personalizado/navidad.png')) }}">Navidad</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/personalizado/mama.png')) }}">Día de la Madre</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/personalizado/papa.png')) }}">Día del Padre</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/personalizado/love.png')) }}">Día de Los enamorados</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/personalizado/prev1.png')) }}">Pascua</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/personalizado/prev2.png')) }}">Cumpleaños</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/personalizado/prev1.png')) }}">Infantil</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/personalizado/bautizo.png')) }}">Bautizos</a></li>
-                      <li><a href="{{ absolute_url( asset('image/cupcakes/personalizado/matrimonio.png')) }}">Matrimonio</a></li>
+                      {% for cupcake in lista_cupcake.3 %}
+                      <li><a href="{{ absolute_url( asset(cupcake.img)) }}">{{ cupcake.nombre }}</a>{% if session %} - <button type="button" class="btn_eliminar_cupcake" data-id="{{ cupcake.id }}" style="color:red;">Eliminar</button>{% endif %}</li>
+                      {% endfor %}
                     </ul>
                   </div>
                   <div class="column foto">
-                    <img src="{{ absolute_url( asset('image/prev1.png')) }}">
+                    <img src="{{ absolute_url( asset('image/cupcakes/personalizado/navidad.png')) }}">
                   </div>
                 </div>
 
@@ -96,9 +89,13 @@ Nosotros | CS Cupcakes | Los &Aacute;ngeles
                 <h3>Mini Cupcakes</h3>
                 <div class="row medium-up-2">
                   <div class="column">
+                    {% if session %}
+                    <a href="#" class="btn_agregar_cupcake" data-categoria="4">Agregar</a>
+                    {% endif %}
                     <ul>
-                      <li><a href="{{ absolute_url( asset('image/prev1.png')) }}">Perzonalizados</a></li>
-                      <li><a href="{{ absolute_url( asset('image/prev2.png')) }}">No Personalizados</a></li>
+                      {% for cupcake in lista_cupcake.4 %}
+                      <li><a href="{{ absolute_url( asset(cupcake.img)) }}">{{ cupcake.nombre }}</a>{% if session %} - <button type="button" class="btn_eliminar_cupcake" data-id="{{ cupcake.id }}" style="color:red;">Eliminar</button>{% endif %}</li>
+                      {% endfor %}
                     </ul>
                   </div>
                   <div class="column foto">
@@ -137,45 +134,17 @@ Nosotros | CS Cupcakes | Los &Aacute;ngeles
           </div>
 
           <div class="cupcakes-slides" data-slick='{"slidesToShow": 4, "slidesToScroll": 1}'>
-            <div><a href="">
-              <img src="{{ absolute_url( asset('image/cupcakes/clasico/limon.png')) }}">
-              <h3>Clasico</h3>
-              <hr>
-              <h4>Limon</h4>
-              <div class="precio">$925 - $570</div>
-            </a></div>
-
-            <div><a href="">
-              <img src="{{ absolute_url( asset('image/cupcakes/clasico/naranja.png')) }}">
-              <h3>Clasico</h3>
-              <hr>
-              <h4>Naranja</h4>
-              <div class="precio">$925 - $570</div>
-            </a></div>
-
-            <div><a href="">
-              <img src="{{ absolute_url( asset('image/cupcakes/personalizado/bautizo.png')) }}">
-              <h3>Personalizado</h3>
-              <hr>
-              <h4>Bautizos</h4>
-              <div class="precio">$925 - $570</div>
-            </a></div>
-
-            <div><a href="">
-              <img src="{{ absolute_url( asset('image/cupcakes/clasico/velvet.png')) }}">
-              <h3>Clasico</h3>
-              <hr>
-              <h4>Red Velvet</h4>
-              <div class="precio">$925 - $570</div>
-            </a></div>
-
-            <div><a href="">
-              <img src="{{ absolute_url( asset('image/cupcakes/Especiales/oreo.png')) }}">
-              <h3>Especiales</h3>
-              <hr>
-              <h4>Oreo</h4>
-              <div class="precio">$925 - $570</div>
-            </a></div>
+            {% for destacado in destacados %}
+              <div>
+                <a>
+                  <img src="{{ absolute_url( asset(destacado.imagen)) }}">
+                  <h3>{{ destacado.texto1 }}</h3>
+                  <hr>
+                  <h4>{{ destacado.texto2 }}</h4>
+                  <div class="precio">{{ destacado.precio }}</div>
+                </a>
+              </div>
+            {% endfor %}
           </div>   
 
         </div>
@@ -193,6 +162,46 @@ Nosotros | CS Cupcakes | Los &Aacute;ngeles
     <br>
     <br>
     <br>
+
+    {% if session %}
+    <div class="small reveal" id="exampleModal1" data-reveal data-animation-in="someAnimationIn">
+      <h2>CUPCAKE</h2>
+      <div class="row">
+        <div class="medium-12 columns">
+          <form id="form_cupcakes" action="{{ url('ajax_guardar_cupcakes') }}" method="post" enctype="multipart/form-data">
+            <input type="hidden" id="txt_id" name="txt_id">
+            <input type="hidden" id="txt_cat" name="txt_cat">
+            <!-- <input type="hidden" id="txt_tipo" name="txt_tipo" value="1"> -->
+            
+            <h3>Agregar</h3>
+
+            <div class="row">
+              <div class="medium-6 columns">
+                
+                <label for="">Nombre</label>
+                <input type="text" id="txt_texto_2" name="txt_texto_2">
+
+              </div>
+              <div class="medium-6 columns">
+                <div class="contenido_imagen_editar" style="text-align: center;">
+                  
+                </div>
+                <div class="btn-editar" style="text-align: center;">
+                  <input type="file" class="file_foto_cupcake file_foto2" accept="image/x-png, image/jpeg" name="foto">
+                </div>
+              </div>
+            </div>
+
+            <button type="button" class="btn_guardar_cupcakes">Guardar</button>
+
+          </form>
+        </div>
+      </div>
+      <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %}
             
 {% endblock %}
 

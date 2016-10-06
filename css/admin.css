@@ -110,3 +110,22 @@
 #file_imagen_banner{
   display: none;
 }
+
+.topbar_admin{
+  height: 40px;
+  background-color: #242029;
+  text-align: right;
+}
+
+.topbar_admin div{
+  padding-top: 8px;
+  width: 72em;
+  margin: auto;
+}
+
+.topbar_admin div a{
+  color: #e9daf7;
+  border: 2px solid #d1b7e8;
+  padding: 4px 20px;
+  border-radius: 7px;
+}

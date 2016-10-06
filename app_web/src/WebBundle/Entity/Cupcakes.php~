@@ -57,6 +57,13 @@ class Cupcakes
     private $precio;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="activo", type="integer", nullable=true)
+     */
+    private $activo;
+
+    /**
      * @var \Categoria
      *
      * @ORM\ManyToOne(targetEntity="Categoria")

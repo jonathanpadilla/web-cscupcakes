@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ absolute_url(asset('css/owl.carousel2.min.css')) }}">
     
     <link rel="stylesheet" href="{{ absolute_url(asset('css/app.css')) }}">
-    {% if session == 1 %}
+    {% if session %}
     <link rel="stylesheet" href="{{ absolute_url(asset('css/admin.css')) }}">
     {% endif %}
 
@@ -20,7 +20,29 @@
 
   </head>
   <body {{ id_body is defined ? id_body }}>
-    
+
+    {% if session %}
+        <div class="topbar_admin">
+            <div>
+                <a href="{{ url('web_logout') }}">Salir</a>
+            </div>
+        </div>
+        <!-- <div class="top-bar-container" data-sticky-container>
+            <div class="sticky" data-sticky data-options="anchor: page; marginTop: 0;">
+                <div class="top-bar">
+                    <div class="row">
+                        <div class="top-bar-left"><h4>Bienvenido</h4></div>
+                        <div class="top-bar-right">
+                            <div class="boton-salir">
+                                <a class="button" href="{{ url('web_logout') }}">Salir</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    {% endif %}
+
     {% block body %}
     {% endblock %}
     
@@ -33,7 +55,7 @@
     <script src="{{ absolute_url(asset('js/owl.carousel2.min.js')) }}"></script>
     <script src="{{ absolute_url(asset('js/app.js')) }}"></script>
 
-    {% if session == 1 %}
+    {% if session %}
     <script src="{{ absolute_url(asset('js/admin.js')) }}"></script>
     {% endif %}
 

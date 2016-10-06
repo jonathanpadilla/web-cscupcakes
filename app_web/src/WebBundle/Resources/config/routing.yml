@@ -18,6 +18,18 @@ web_contacto:
     path:     /contacto/
     defaults: { _controller: WebBundle:Contacto:contacto }
 
+web_login:
+    path:     /admin/
+    defaults: { _controller: WebBundle:Login:login }
+
+web_login_check:
+    path:     /admin/check/
+    defaults: { _controller: WebBundle:Login:loginCheck }
+
+web_logout:
+    path:     /admin/logout/
+    defaults: { _controller: WebBundle:Login:logout }
+
 # FUNCIONE AJAX
 ajax_guardar_texto:
     path:     /admin/guardar-texto/
@@ -52,5 +64,17 @@ ajax_guardar_imagen_banner:
 ajax_eliminar_imagen_banner:
     path:     /admin/eliminar-imagen-banner/
     defaults: { _controller: WebBundle:Admin:eliminarImagenBanner }
+    options:
+        expose: true
+
+ajax_eliminar_cupcake:
+    path:     /admin/eliminar-cupcake/
+    defaults: { _controller: WebBundle:Admin:eliminarCupcake }
+    options:
+        expose: true
+
+ajax_agregar_cupcake:
+    path:     /admin/agregar-cupcake/
+    defaults: { _controller: WebBundle:Admin:agregarCupcake }
     options:
         expose: true

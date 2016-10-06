@@ -16,24 +16,24 @@ CS Cupcakes | Los &Aacute;ngeles
           
           <div class="wrapper">
             <div class="editar_texto_input" data-id="1" data-campo="1" data-item="h3">
-              <h3>Bienvenidos</h3>
+              <h3>{{ seccion.bienvenidos.texto1 }}</h3>
             </div>
             <div class="editar_texto_area" data-id="1" data-campo="2" data-item="p">
-              <p>En Cs Cupcakes entendemos la repostería como el arte de preparar y decorar productos dulces. Unir exquisitos sabores con hermosas decoraciones acompañados de la más alta calidad de productos es nuestro compromiso. Queremos que cada mordisco genere una sonrisa y que cada momento especial se transforme en único.</p>
+              <p>{{ seccion.bienvenidos.texto2 }}</p>
             </div>
             <div class="bottom">
               <div class="editar_texto_input inline-block" data-id="1" data-campo="3" data-item="h4">
-                <h4>haz tu pedido</h4>
+                <h4>{{ seccion.bienvenidos.texto3 }}</h4>
               </div>
               <div class="telefono etiqueta editar_texto_input" data-id="1" data-campo="4" data-item="span">
-                <span>9 9844 8040</span>
+                <span>{{ seccion.bienvenidos.texto4 }}</span>
               </div>
             </div>
           </div>
 
         </div>
         <div class="medium-6 columns">
-          {% if session == 1 %}
+          {% if session %}
             <div class="btn-editar">
               <form id="form_imagen_bienvenida" action="#" method="post" enctype="multipart/form-data">
                 <input type="file" class="file_foto" accept="image/x-png, image/jpeg" name="foto" data-img="img_bienvenida" data-form="form_imagen_bienvenida" data-id="1">
@@ -41,7 +41,7 @@ CS Cupcakes | Los &Aacute;ngeles
             </div>
           {% endif %}
           <div class="wrapper img_bienvenida">
-            <img src="{{ absolute_url( asset('image/inicio1.png')) }}">
+            <img src="{{ absolute_url( asset(seccion.bienvenidos.foto)) }}">
           </div>
           
         </div>
@@ -51,7 +51,7 @@ CS Cupcakes | Los &Aacute;ngeles
         <p>cupcakes destacados</p>
       </div>
 
-      {% if session == 1 %}
+      {% if session %}
         <div class="btn-editar">
           <button type="button" id="btn_inicio_editar_destacados"><img src="{{ absolute_url(asset('image/edit.png')) }}" alt=""></button>
         </div>
@@ -68,9 +68,9 @@ CS Cupcakes | Los &Aacute;ngeles
               <h4>{{ destacado.texto2 }}</h4>
               <div class="precio">{{ destacado.precio }}</div>
             </a>
-            {% if session == 1 %}
+            {% if session %}
               <a href="#" class="btn_editar_destacado" data-id="{{ destacado.id }}" data-img="{{ absolute_url( asset(destacado.imagen)) }}" data-texto1="{{ destacado.texto1 }}" data-texto2="{{ destacado.texto2 }}" data-precio="{{ destacado.precio }}">Editar</a>
-              <!-- <a href="#">Eliminar</a> -->
+              <a href="#" class="btn_eliminar_cupcake" data-id="{{ destacado.id }}" style="color: orange;">Eliminar</a>
             {% endif %}
           </div>
         {% endfor %}
@@ -130,10 +130,10 @@ CS Cupcakes | Los &Aacute;ngeles
         <div class="separador"><img src="{{ absolute_url( asset('image/separador1.png')) }}"></div>
       
         <div class="editar_texto_input" data-id="2" data-campo="2" data-item="p">
-          <p>Déjate seducir por sabores y aromas inigualables, sorpréndete al disfrutar de sabores nuestros tradicionales en CupCakes y vuélvete un adicto al comer un especial.</p>
+          <p>{{ seccion.nuevos_cupcakes.texto2 }}</p>
         </div>
         
-        {% if session == 1 %}
+        {% if session %}
           <div class="btn-editar">
             <button type="button" id="btn_inicio_editar_nuevos"><img src="{{ absolute_url(asset('image/edit.png')) }}" alt=""></button>
           </div>
@@ -142,15 +142,16 @@ CS Cupcakes | Los &Aacute;ngeles
         <div class="cupcakes-slides" data-slick='{"slidesToShow": 4, "slidesToScroll": 1}'>
         {% for nuevo in nuevos %}
           <div>
-            <a href="#">
+            <a>
               <img src="{{ absolute_url( asset(nuevo.imagen)) }}">
               <h3>{{ nuevo.texto1 }}</h3>
               <hr>
               <h4>{{ nuevo.texto2 }}</h4>
               <div class="precio">{{ nuevo.precio }}</div>
             </a>
-              {% if session == 1 %}
+              {% if session %}
                 <a href="#" class="btn_editar_nuevo" data-id="{{ nuevo.id }}" data-img="{{ absolute_url( asset(nuevo.imagen)) }}" data-texto1="{{ nuevo.texto1 }}" data-texto2="{{ nuevo.texto2 }}" data-precio="{{ nuevo.precio }}">Editar</a>
+                <a href="#" class="btn_eliminar_cupcake" data-id="{{ nuevo.id }}" style="color: orange;">Eliminar</a>
               {% endif %}
           </div>
         {% endfor %}
@@ -195,7 +196,7 @@ CS Cupcakes | Los &Aacute;ngeles
           <div class="separador"><img src="{{ absolute_url( asset('image/separador1.png')) }}"></div>
           
           <div class="editar_texto_input" data-id="3" data-campo="2" data-item="p">
-            <p>Si deseas que tu evento a actividad tenga un toque especial a lo ya vivido, puedes contar con nosotros, ya que te ofrecemos CupCakes Personalizados para celebraciones como matrimonios, bautizos, actividades para empresas e instituciones con despacho a domicilio.</p>
+            <p>{{ seccion.servicios_especiales.texto2 }}.</p>
           </div>
 
           <div id="serv" class="row">
@@ -284,7 +285,7 @@ CS Cupcakes | Los &Aacute;ngeles
   </div>
 </div>
 
-{% if session == 1 %}
+{% if session %}
 <div class="small reveal" id="exampleModal1" data-reveal data-animation-in="someAnimationIn">
   <h2>CUPCAKES DESTACADOS</h2>
   <div class="row">

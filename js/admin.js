@@ -112,6 +112,30 @@ $(function(){
 		$('#exampleModal1').foundation('open');
 	});
 
+	$(".btn_eliminar_cupcake").on('click', function(e){
+		var btn = $(this);
+
+		e.preventDefault();
+
+		if(confirm('¿Realmente desea eliminar el registro del sistema?'))
+		{
+			$.ajax({
+				url: Routing.generate('ajax_eliminar_cupcake'),
+				data: {'id':btn.data('id')},
+				dataType: 'json',
+				method: 'post',
+			}).success(function(json){
+				if(json.result)
+				{
+					location.reload(true);
+				}
+			
+			});
+
+		}
+
+	});
+
 	$(".btn_guardar_destacados").on('click', function(){
 
 		var datos = new FormData($("#form_destacados")[0]);
@@ -246,14 +270,49 @@ $(function(){
 			}).success(function(json){
 				if(json.result)
 				{
-			
+					location.reload(true);
 				}
 			
-				console.log(json);
 			});
 
 		}
 
+	});
+
+	$(".btn_agregar_cupcake").on('click', function(e){
+		var btn = $(this);
+		e.preventDefault();
+
+		$("#txt_id").val('');
+		$("#txt_cat").val(btn.data('categoria'));
+		$("#txt_texto_2").val('');
+		$("#contenido_imagen_editar").html('');
+
+		$(".contenido_imagen_editar").addClass('contenido_imagen_vacio');
+		$('#exampleModal1').foundation('open');
+		// console.log(btn.data('categoria'));
+	});
+
+	$(".btn_guardar_cupcakes").on('click', function(){
+		var btn = $(this);
+
+		var datos = new FormData( $("#form_cupcakes")[0] );
+
+		$.ajax({
+			url: Routing.generate('ajax_agregar_cupcake'),
+			data: datos,
+			dataType: 'json',
+			method: 'post',
+			contentType:false,
+		  	processData:false,
+		  	cache:false
+		}).success(function(json){
+			if(json.result)
+			{
+				location.reload(true);
+			}
+		});
+		
 	});
 
 });
